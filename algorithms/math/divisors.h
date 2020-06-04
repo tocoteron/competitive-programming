@@ -7,7 +7,7 @@
 using namespace std;
 
 // Complexity: O(N^(1/2) * log(N^(1/2))
-vector<long long> getDivisors(long long n)
+vector<long long> getFactors(long long n)
 {
     vector<long long> res;
 

@@ -1,10 +1,10 @@
 #include "divisors.h"
 #include <cassert>
 
-void testGetDivisors()
+void testGetFactors()
 {
     vector<long long> res{1, 2, 4, 5, 10, 20, 25, 50, 100};
-    assert(getDivisors(100) == res);
+    assert(getFactors(100) == res);
 }
 
 void testGetGCD()
@@ -46,7 +46,7 @@ void testGetPrimeFactors()
 
 int main()
 {
-    testGetDivisors();
+    testGetFactors();
     testGetGCD();
     testGetLCM();
     testIsPrime();
