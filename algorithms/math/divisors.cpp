@@ -27,6 +27,12 @@ void testIsPrime()
     assert(!isPrime(6));
 }
 
+void testGetPrimes()
+{
+    vector<long long> res{2, 3, 5, 7};
+    assert(getPrimes(10) == res);
+}
+
 void testGetPrimeFactors()
 {
     vector<pair<long long, long long> > res{
@@ -44,6 +50,7 @@ int main()
     testGetGCD();
     testGetLCM();
     testIsPrime();
+    testGetPrimes();
     testGetPrimeFactors();
 
     return 0;

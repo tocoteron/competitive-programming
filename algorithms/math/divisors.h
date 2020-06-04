@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <algorithm>
 
 using namespace std;
@@ -65,6 +66,37 @@ bool isPrime(long long n)
     }
 
     return true;
+}
+
+// Complexity: O(n * log(log(n)))
+// [2, n]
+vector<long long> getPrimes(long long n)
+{
+    vector<long long> isPrime(n + 1, true);
+    vector<long long> primes;
+
+    for (long long i = 2LL; i * i <= n; ++i)
+    {
+        if (!isPrime[i])
+        {
+            continue;
+        }
+
+        for (long long j = i * 2; j <= n; j += i)
+        {
+            isPrime[j] = false;
+        }
+    }
+
+    for (long long i = 2LL; i <= n; ++i)
+    {
+        if (isPrime[i])
+        {
+            primes.push_back(i);
+        }
+    }
+
+    return primes;
 }
 
 // Complexity: O(n^(1/2))
