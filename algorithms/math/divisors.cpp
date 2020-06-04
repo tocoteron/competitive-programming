@@ -20,6 +20,13 @@ void testGetLCM()
     assert(getLCM(2, 6) == 6);
 }
 
+void testIsPrime()
+{
+    assert(!isPrime(1));
+    assert(isPrime(2));
+    assert(!isPrime(6));
+}
+
 void testGetPrimeFactors()
 {
     vector<pair<long long, long long> > res{
@@ -36,6 +43,7 @@ int main()
     testGetDivisors();
     testGetGCD();
     testGetLCM();
+    testIsPrime();
     testGetPrimeFactors();
 
     return 0;

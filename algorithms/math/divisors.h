@@ -48,6 +48,24 @@ long long getLCM(long long a, long long b)
     return a * b / gcd;
 }
 
+bool isPrime(long long n)
+{
+    if (n == 1LL)
+    {
+        return false;
+    }
+
+    for (long long i = 2LL; i < n; ++i)
+    {
+        if (n % i == 0LL)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 // Complexity: O(n^(1/2))
 vector<pair<long long, long long> > getPrimeFactors(long long n)
 {
