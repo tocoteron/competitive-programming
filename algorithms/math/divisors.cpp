@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <algorithm>
 #include <cassert>
 
@@ -50,7 +51,7 @@ void testGetGCD()
 {
     assert(getGCD(0, 2) == 2); // Unit is 0
     assert(getGCD(1, 2) == 1);
-    assert(getGCD(30, 36) == 6);
+    assert(getGCD(2 * 3 * 5, 2 * 2 * 3 * 3) == 6);
 }
 
 // Complexity: O(log(min(a, b)))
@@ -67,11 +68,52 @@ void testGetLCM()
     assert(getLCM(2, 6) == 6);
 }
 
+// Complexity: O(n^(1/2))
+vector<pair<long long, long long> > getPrimeFactors(long long n)
+{
+    vector<pair<long long, long long> > res;
+
+    for (long long i = 2LL; i * i <= n; ++i)
+    {
+        long long count = 0LL;
+
+        while (n % i == 0LL)
+        {
+            n /= i;
+            ++count;
+        }
+
+        if (count > 0)
+        {
+            res.push_back(make_pair(i, count));
+        }
+    }
+
+    if (n > 1LL)
+    {
+        res.push_back(make_pair(n, 1LL));
+    }
+
+    return res;
+}
+
+void testGetPrimeFactors()
+{
+    vector<pair<long long, long long> > res{
+        make_pair(2, 1),
+        make_pair(3, 2),
+        make_pair(5, 3)
+    };
+
+    assert(getPrimeFactors(2 * 3 * 3 * 5 * 5 * 5) == res);
+}
+
 int main()
 {
     testGetDivisors();
     testGetGCD();
     testGetLCM();
+    testGetPrimeFactors();
 
     return 0;
 }
