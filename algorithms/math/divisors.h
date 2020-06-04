@@ -48,6 +48,7 @@ long long getLCM(long long a, long long b)
     return a * b / gcd;
 }
 
+// Complexity: O(n^(1/2))
 bool isPrime(long long n)
 {
     if (n == 1LL)
@@ -55,7 +56,7 @@ bool isPrime(long long n)
         return false;
     }
 
-    for (long long i = 2LL; i < n; ++i)
+    for (long long i = 2LL; i * i <= n; ++i)
     {
         if (n % i == 0LL)
         {
