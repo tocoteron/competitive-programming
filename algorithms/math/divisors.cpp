@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -24,14 +25,37 @@ vector<long long> getDivisors(long long n)
     return res;
 }
 
+void testGetDivisors()
+{
+    vector<long long> res{1, 2, 4, 5, 10, 20, 25, 50, 100};
+    assert(getDivisors(100) == res);
+}
+
+// Complexity: O(log(min(a, b)))
+long long getGCD(long long a, long long b)
+{
+    long long tmp;
+    while (b != 0LL)
+    {
+        tmp = b;
+        b = a % b;
+        a = tmp;
+    }
+
+    return a;
+}
+
+void testGetGCD()
+{
+    assert(getGCD(0, 2) == 2); // Unit is 0
+    assert(getGCD(1, 2) == 1);
+    assert(getGCD(30, 36) == 6);
+}
+
 int main()
 {
-    auto divisors = getDivisors(100);
-
-    for (const auto& d : divisors)
-    {
-        cout << d << endl;
-    }
+    testGetDivisors();
+    testGetGCD();
 
     return 0;
 }
