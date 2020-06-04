@@ -53,6 +53,7 @@ void testGetGCD()
     assert(getGCD(30, 36) == 6);
 }
 
+// Complexity: O(log(min(a, b)))
 long long getLCM(long long a, long long b)
 {
     auto gcd = getGCD(a, b);
