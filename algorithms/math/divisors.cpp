@@ -35,6 +35,7 @@ void testGetDivisors()
 long long getGCD(long long a, long long b)
 {
     long long tmp;
+
     while (b != 0LL)
     {
         tmp = b;
@@ -52,10 +53,24 @@ void testGetGCD()
     assert(getGCD(30, 36) == 6);
 }
 
+long long getLCM(long long a, long long b)
+{
+    auto gcd = getGCD(a, b);
+
+    return a * b / gcd;
+}
+
+void testGetLCM()
+{
+    assert(getLCM(1, 2) == 2);
+    assert(getLCM(2, 6) == 6);
+}
+
 int main()
 {
     testGetDivisors();
     testGetGCD();
+    testGetLCM();
 
     return 0;
 }
