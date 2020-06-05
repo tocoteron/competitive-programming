@@ -6,18 +6,18 @@ using namespace std;
 // 0-indexed
 struct UnionFind
 {
-    vector<long long> parents;
-    vector<long long> sizes;
+    vector<int> parents;
+    vector<int> sizes;
 
-    UnionFind(long long elem_num) : parents(elem_num), sizes(elem_num, 1LL)
+    UnionFind(int elem_num) : parents(elem_num), sizes(elem_num, 1)
     {
-        for (long long i = 0LL; i < elem_num; ++i)
+        for (int i = 0; i < elem_num; ++i)
         {
             parents[i] = i;
         }
     }
 
-    long long find(long long x)
+    int find(int x)
     {
         if  (parents[x] == x)
         {
@@ -27,7 +27,7 @@ struct UnionFind
         return parents[x] = find(parents[x]);
     }
 
-    bool unite(long long a, long long b)
+    bool unite(int a, int b)
     {
         a = find(a);
         b = find(b);
@@ -48,12 +48,12 @@ struct UnionFind
         return true;
     }
 
-    bool same(long long a, long long b)
+    bool same(int a, int b)
     {
         return find(a) == find(b);
     }
 
-    long long size(long long x)
+    int size(int x)
     {
         return sizes[find(x)];
     }
