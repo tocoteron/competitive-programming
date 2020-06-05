@@ -44,6 +44,12 @@ void testGetPrimeFactors()
     assert(getPrimeFactors(2 * 3 * 3 * 5 * 5 * 5) == res);
 }
 
+void testGetModInv()
+{
+    assert(getModInv(2, 3) == 2);
+    assert(getModInv(4, 5) == 4);
+}
+
 int main()
 {
     testGetFactors();
@@ -52,6 +58,7 @@ int main()
     testIsPrime();
     testGetPrimes();
     testGetPrimeFactors();
+    testGetModInv();
 
     return 0;
 }
